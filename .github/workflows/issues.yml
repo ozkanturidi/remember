@@ -1,0 +1,15 @@
+name: Issues yml
+on:
+  issues:
+    types:
+      - opened
+jobs:
+  information:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+      - name: Install Dependencies
+        run: npm ci
+      - name: Information
+        run: echo "${{ github.event.issue.title }}"
